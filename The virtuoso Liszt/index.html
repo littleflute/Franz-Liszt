@@ -1,0 +1,52 @@
+<!DOCTYPE html>  
+<html>	
+<head>	
+<title>	
+</title>	
+</head>	
+<body>	
+para 1:  <br>	
+<a href="http://www.beautifullover.org" target="_blank">	
+beautifullover </a>	
+</br>	
+<a href="https://github.com/littleflute/BlCDs/issues/519" target="_blank">	
+issue519 </a>	
+<div id="curSong" style="border:1px solid green;"></div>	
+<p id="demo" style="border:1px solid red;"></p>		
+<button onclick="play('01 Liebestraum No.3 in A-flat major S.541 no.3.mp3')">1:01 Liebestraum No.3 in A-flat major S.541 no.3.mp3</button> 
+<button onclick="play('02 Un sospiro- Etude de concert in D-flat major S.144 no.3.mp3')">2:02 Un sospiro- Etude de concert in D-flat major S.144 no.3.mp3</button> 
+<button onclick="play('03 Hungarian Rhapsody No.11 in A minor S.244 no.11.mp3')">3:03 Hungarian Rhapsody No.11 in A minor S.244 no.11.mp3</button> 
+<button onclick="play('04 Il penseroso in C-sharp minor S.161 no.2.mp3')">4:04 Il penseroso in C-sharp minor S.161 no.2.mp3</button> 
+<button onclick="play('05 Consolation No.3 in D-flat major S.172 no.3.mp3')">5:05 Consolation No.3 in D-flat major S.172 no.3.mp3</button> 
+<button onclick="play('06 Grandes Etude de Paganini S.141 no.1 in G minor. Preludio (Tremolo).mp3')">6:06 Grandes Etude de Paganini S.141 no.1 in G minor. Preludio (Tremolo).mp3</button> 
+<button onclick="play('07 Grandes Etude de Paganini S.141 no.2 in E-flat major (Octave).mp3')">7:07 Grandes Etude de Paganini S.141 no.2 in E-flat major (Octave).mp3</button> 
+<button onclick="play('08 Grandes Etude de Paganini S.141 no.3 in G-sharp minor, La Campanella.mp3')">8:08 Grandes Etude de Paganini S.141 no.3 in G-sharp minor, La Campanella.mp3</button> 
+<button onclick="play('09 Grandes Etude de Paganini S.141 no.4 in E major (Arpeggio).mp3')">9:09 Grandes Etude de Paganini S.141 no.4 in E major (Arpeggio).mp3</button> 
+<button onclick="play('10 Grandes Etude de Paganini S.141 no.5 in E major, La Chasse.mp3')">10:10 Grandes Etude de Paganini S.141 no.5 in E major, La Chasse.mp3</button> 
+<br> 
+<button onclick="play('11 Grandes Etude de Paganini S.141 no.6 in A minor, Tema con Variazioni.mp3')">11:11 Grandes Etude de Paganini S.141 no.6 in A minor, Tema con Variazioni.mp3</button> 
+<audio id="mp3Player" controls> 	
+	<source src="01 Owner of a Lonely Heart.mp3" type="audio/mpeg">	
+Your browser does not supoort hte audio element	
+</audio>		
+<script>								
+	var xmlhttp = new XMLHttpRequest();				
+	xmlhttp.onreadystatechange = function() {				
+   	if(this.readyState == 4 && this.status == 200) {		
+       		var myObj = JSON.parse(this.responseText); 		
+       		document.getElementById("demo").innerHTML = myObj.songNum;	
+   	}								
+	};		
+	xmlhttp.open("GET", "https://littleflute.github.io/Elton-John/l.json", true);	
+	xmlhttp.send();							
+//--	
+function play(url){		
+	var p = document.getElementById("mp3Player");	
+p.src = url;	
+p.play();	
+var s = document.getElementById("curSong");	
+   if(s) s.innerHTML.url;				
+}	
+</script>							
+</body>	
+</html>	
